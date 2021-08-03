@@ -17,6 +17,7 @@ class DioClient {
     intializeInterceptors();
   }
 
+  //get request
   Future<Response> getRequest(String endpoint) async {
     //...
     Response response;

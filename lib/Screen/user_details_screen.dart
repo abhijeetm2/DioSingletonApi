@@ -34,11 +34,11 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                         : Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(snapshot.data?.firstName ?? 'null'),
+                              Text(snapshot.data?.firstName ?? 'no data found'),
                               SizedBox(height: 20),
-                              Text(snapshot.data?.lastName ?? 'null'),
+                              Text(snapshot.data?.lastName ?? 'no data found'),
                               SizedBox(height: 20),
-                              Text(snapshot.data?.email ?? 'null'),
+                              Text(snapshot.data?.email ?? 'no data found'),
                               SizedBox(height: 20),
                             ],
                           )
