@@ -5,15 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 
-class ListUsersScreen extends StatelessWidget {
+class ListUsersScreen extends StatefulWidget {
+  @override
+  _ListUsersScreenState createState() => _ListUsersScreenState();
+}
+
+class _ListUsersScreenState extends State<ListUsersScreen> {
   List<Data> userlist = [];
   @override
   Widget build(BuildContext context) {
     final users = Provider.of<UsersListprovider>(context, listen: false)
         .getUserlists('api/users');
-
-    final page = Provider.of<UsersListprovider>(context, listen: false)
-        .getDataUsersImg();
 
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +24,10 @@ class ListUsersScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.download_rounded),
             onPressed: () {
-              _createPDF(userlist, page);
+              final page =
+                  Provider.of<UsersListprovider>(context, listen: false)
+                      .getPerpage();
+              _createPDF(userlist, page!);
             },
           )
         ],

@@ -9,6 +9,8 @@ class UsersListprovider with ChangeNotifier {
 
   List<Data>? users;
 
+  int? page;
+
   Future<List<Data>?> getUserlists(String endpoint) async {
     //...
     Response response;
@@ -19,6 +21,7 @@ class UsersListprovider with ChangeNotifier {
         listUserresponse = DataUsersImg.fromJson(response.data);
         users = listUserresponse?.data;
         notifyListeners();
+        page = listUserresponse?.perPage as int;
         return users;
       } else {
         print('status is not 200');
@@ -28,8 +31,9 @@ class UsersListprovider with ChangeNotifier {
     }
   }
 
-  int getDataUsersImg() {
+  int? getPerpage() {
     //...
-    return listUserresponse!.perPage as int;
+    notifyListeners();
+    return page;
   }
 }
