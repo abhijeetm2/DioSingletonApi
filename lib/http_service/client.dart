@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 
 class DioClient {
@@ -24,11 +26,15 @@ class DioClient {
     try {
       response = await _dio!.get(endpoint);
       // print(response.data);
+    } on SocketException catch (e) {
+      print(e.message);
+      throw Exception(e);
     } on Exception catch (e) {
       // TODO
-      print(e);
+      print('excenption : $e');
       throw Exception(e);
     }
+
     return response;
   }
 

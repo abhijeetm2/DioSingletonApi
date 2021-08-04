@@ -1,8 +1,10 @@
 import 'package:api_integration_dio/providers/user_detailsProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'Screen/list_user_post_screen.dart';
 import 'Screen/user_details_screen.dart';
-import 'providers/user_provider.dart';
+import 'providers/list_users_provider.dart';
+import 'providers/users_list_provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,6 +22,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => UserDetailsProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => UsersListprovider(),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -27,7 +32,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         // home: MyHomePage(title: 'Flutter Demo Home Page'),
-        home: UserDetailsScreen(),
+        home: ListUsersScreen(),
+        //UserDetailsScreen(),
         //home: UserDataScreen(),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:api_integration_dio/http_service/client.dart';
+import 'package:api_integration_dio/model_response/data_users_img.dart';
 import 'package:api_integration_dio/model_response/user.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,4 +28,6 @@ class UserProvider with ChangeNotifier {
     }
     return _userData;
   }
+
+
 }

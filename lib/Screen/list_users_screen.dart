@@ -1,5 +1,5 @@
 import 'package:api_integration_dio/model_response/user.dart';
-import 'package:api_integration_dio/providers/user_provider.dart';
+import 'package:api_integration_dio/providers/list_users_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
